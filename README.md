@@ -1,3 +1,5 @@
+![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/ksator/collect-junos-configuration.svg) ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/ksator/collect-junos-configuration.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/ksator/collect-junos-configuration.svg) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/ksator/collect-junos-configuration.svg) ![MicroBadger Size](https://img.shields.io/microbadger/image-size/ksator/collect-junos-configuration.svg)
+
 # Description 
 
 This microservice collects Junos configuration    
