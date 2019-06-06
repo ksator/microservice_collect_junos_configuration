@@ -1,0 +1,62 @@
+---
+  - name: Create output directory for each device
+    file:
+      path: "{{save_dir}}"
+      state: directory
+      
+  - name: Collect configuration in text format from devices
+    junos_facts:
+      gather_subset: config
+      config_format: text
+      provider: "{{ credentials }}"
+    register: "result_text"
+    when: configuration.format == "text"
+
+  - name: Copy collected configuration in a local directory
+    copy: 
+      content: "{{ result_text.ansible_facts.ansible_net_config }}" 
+      dest: "{{save_dir}}/configuration.conf"
+    when: configuration.format == "text"
+
+  - name: Collect configuration in set format from devices
+    junos_facts:
+      gather_subset: config
+      config_format: set
+      provider: "{{ credentials }}"
+    register: "result_set"
+    when: configuration.format == "set"
+
+  - name: copy collected configuration in a local directory
+    copy:
+      content: "{{ result_set.ansible_facts.ansible_net_config }}"
+      dest: "{{save_dir}}/configuration.set"
+    when: configuration.format == "set"
+ 
+  - name: Collect configuration in json format from devices
+    junos_facts:
+      gather_subset: config
+      config_format: json
+      provider: "{{ credentials }}"
+    register: "result_json"
+    when: configuration.format == "json"
+
+  - name: copy collected configuration in a local directory
+    copy:
+      content: "{{ result_json.ansible_facts.ansible_net_config }}"
+      dest: "{{save_dir}}/configuration.json"
+    when: configuration.format == "json"
+
+  - name: Collect configuration in xml format from devices
+    junos_facts:
+      gather_subset: config
+      config_format: xml
+      provider: "{{ credentials }}"
+    register: "result_xml"
+    when: configuration.format == "xml"
+
+  - name: copy collected configuration in a local directory
+    copy:
+      content: "{{ result_xml.ansible_facts.ansible_net_config }}"
+      dest: "{{save_dir}}/configuration.xml"
+    when: configuration.format == "xml"
+

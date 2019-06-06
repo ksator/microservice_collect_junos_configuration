@@ -1,0 +1,13 @@
+- name: collect junos configuration from devices
+  hosts: all
+  connection: local
+  gather_facts: no
+  pre_tasks:
+   - include_vars: "repository.cfg"
+   - include_vars: "inputs/configuration_format_to_collect.yml"
+  roles: 
+    - collect-configuration
+
+
+
+  
