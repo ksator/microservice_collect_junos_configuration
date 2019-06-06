@@ -16,6 +16,8 @@ $ docker pull ksator/collect-junos-configuration
 Verify
 ```
 $ docker images ksator/collect-junos-configuration
+REPOSITORY                           TAG                 IMAGE ID            CREATED             SIZE
+ksator/collect-junos-configuration   latest              972f17f4a0c0        14 minutes ago      543MB
 
 ```
 
@@ -30,8 +32,8 @@ Create this structure:
   - A YAML file (`configuration_format_to_collect.yml`) to indicate the desired format for the Junos configuration (text, json, xml, set). The default format is text.         
   
 ```
-$ ls inputs 
-hosts  configuration_format_to_collect.yml
+$ ls inputs/
+configuration_format_to_collect.yml  hosts
 ```
 
 Ansible inventory example: 
