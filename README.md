@@ -34,11 +34,11 @@ ksator/collect-junos-configuration   latest              972f17f4a0c0        14 
 
 Create this structure: 
 - An `inputs` directory. With these files: 
-  - An Ansible Inventory file (`hosts`) with following variables:
+  - An Ansible Inventory file (`hosts.ini`) with following variables:
     - `ansible_host`: IP of the device
     - `ansible_ssh_user`: Username to use for the connection
     - `ansible_ssh_pass`: Password to use for the connection
-  - A YAML file (`configuration_format_to_collect.yml`) to indicate the desired format for the Junos configuration. 
+  - A YAML file (`format_to_use_when_collecting_configuration.yml`) to indicate the desired format for the Junos configuration. 
     - The default format is text. 
     - Supported formats are: 
       - text
@@ -49,12 +49,12 @@ Create this structure:
   
 ```
 $ ls inputs/
-configuration_format_to_collect.yml  hosts
+format_to_use_when_collecting_configuration.yml  hosts.ini
 ```
 
 Ansible inventory example: 
 ```
-$ more inputs/hosts
+$ more inputs/hosts.ini
 [spines]
 demo-qfx10k2-14   ansible_host=172.25.90.67
 demo-qfx10k2-15   ansible_host=172.25.90.68
@@ -72,7 +72,7 @@ ansible_ssh_pass=juniper123
 Configure the desired format for the Junos configuration (text, json, xml, set)   
 Example:   
 ```
-$ more inputs/configuration_format_to_collect.yml
+$ more inputs/format_to_use_when_collecting_configuration.yml
 
 ---
 configuration:

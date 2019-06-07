@@ -1,9 +1,9 @@
 # cd /
 echo "Collect Junos configuration"
 
-if [ -f "inputs/hosts" ]
+if [ -f "inputs/hosts.ini" ]
 then
-	ansible-playbook playbook.yml -i inputs/hosts
+	ansible-playbook playbook.yml -i inputs/hosts.ini
 else
 	echo "No inventory file found, aborting"
 fi
