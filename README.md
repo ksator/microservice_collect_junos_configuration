@@ -3,7 +3,13 @@
 # Description 
 
 This microservice collects Junos configuration    
-It uses Ansible. 
+It uses Docker and Ansible.  
+This microservice: 
+- instanciates a container
+- executes the service (collects Junos configuration)
+- stops the container 
+- removes the container
+
 
 # Usage
 
