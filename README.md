@@ -10,7 +10,7 @@ This microservice:
 - stops the container 
 - removes the container
 
-The Docker image is https://hub.docker.com/r/ksator/collect-junos-configuration 
+The Docker image is [```ksator/collect-junos-configuration```](https://hub.docker.com/r/ksator/collect-junos-configuration) 
 
 # Usage
 
